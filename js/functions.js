@@ -13,7 +13,7 @@ checkStrLength('проверяемая строка', 10);
 function isPalindrome(str) {
   let reverseStr = '';
   const normalizeStr = str.replaceAll(' ', '').toLowerCase();
-  for (let i = normalizeStr.length - 1; 0 <= i; --i) {
+  for (let i = normalizeStr.length - 1; 0 <= i; i--) {
     reverseStr += normalizeStr[i];
   }
   return normalizeStr === reverseStr.toLowerCase();
