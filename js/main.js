@@ -88,5 +88,5 @@ const createDescriptionPhoto = () => ({
 
 const similarDescriptionPhoto = Array.from({length: 25}, createDescriptionPhoto);
 
-
-// console.log(similarDescriptionPhoto);
+// eslint-disable-next-line
+console.log(similarDescriptionPhoto);
