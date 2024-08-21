@@ -47,3 +47,24 @@ getNumber('а я томат');
 getNumber(2023);
 getNumber(-1);
 getNumber(1.5);
+
+function convertInMinutes(time) {
+  const timeInArray = time.split(':').map(Number);
+  const timeInMinutes = timeInArray[0] * 60 + timeInArray[1];
+
+  return timeInMinutes;
+}
+
+function checkMeetingTime(startWorkTime, endWorkTime, startMeetingTime, meetingDuration = Number) {
+  const startTimeMinutes = convertInMinutes(startWorkTime);
+  const endTimeMinutes = convertInMinutes(endWorkTime);
+  const startMeetingTimeMinutes = convertInMinutes(startMeetingTime);
+
+  return startTimeMinutes <= startMeetingTimeMinutes && (startMeetingTimeMinutes + meetingDuration) <= endTimeMinutes;
+}
+
+checkMeetingTime('08:00', '17:30', '14:00', 90); // true
+checkMeetingTime('8:0', '10:0', '8:0', 120);     // true
+checkMeetingTime('08:00', '14:30', '14:00', 90); // false
+checkMeetingTime('14:00', '17:30', '08:0', 90);  // false
+checkMeetingTime('8:00', '17:30', '08:00', 900); // false
